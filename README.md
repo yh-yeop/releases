@@ -10,6 +10,7 @@
 |---|---|---|
 | YTDL — 유튜브 → 커버·싱크가사 포함 MP3 | `YTDL-v<버전>` | `YTDL-Setup-<버전>.exe` |
 | MP3 Checker — MP3 라이브러리 점검 도구 | `MP3Checker-v<버전>` | `MP3Checker-Setup-<버전>.exe` |
+| Tododoo — 할 일 정리 (Windows · Android) | `Tododoo-v<버전>` | `Tododoo-Setup-<버전>.exe`, `Tododoo-<버전>.apk` |
 
 자동 업데이트를 지원하는 앱은 시작 시 이 저장소에서 자기 릴리스를 확인해 새 버전이 있으면 안내합니다.
 
