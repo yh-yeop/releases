@@ -4,25 +4,28 @@
 
 ## 다운로드
 
-[Releases 페이지](https://github.com/yh-yeop/releases/releases)에서 받고 싶은 앱 이름으로 시작하는 최신 릴리스를 찾아 설치 파일을 받으세요.
+앱별 최신 버전과 설치 방법은 [소개 사이트](https://yh-yeop.github.io/)에서 바로 받을 수 있습니다. 지난 버전은 아래 "모든 버전"에서 찾으세요.
 
-| 앱 | 태그 형식 | 설치 파일 |
-|---|---|---|
-| YTDL — 유튜브 → 커버·싱크가사 포함 MP3 | `YTDL-v<버전>` | `YTDL-Setup-<버전>.exe` |
-| MP3 Checker — MP3 라이브러리 점검 도구 | `MP3Checker-v<버전>` | `MP3Checker-Setup-<버전>.exe` |
-| Tododoo — 할 일 정리 (Windows · Android) | `Tododoo-v<버전>` | `Tododoo-Setup-<버전>.exe`, `Tododoo-<버전>.apk` |
-| Fracture — 2D 액션 플랫포머 (Windows, 베타) | `Fracture-v<버전>` | `Fracture-<버전>-win64.zip` (압축을 풀고 `Fracture.exe` 실행, 자동 업데이트 없음) |
+| 앱 | 소개 · 최신 버전 | 모든 버전 | 설치 파일 |
+|---|---|---|---|
+| **YTDL** — 유튜브 → 커버·싱크가사 포함 MP3 (Windows) | [소개](https://yh-yeop.github.io/#p/ytdl) | [목록](https://github.com/yh-yeop/releases/releases?q=YTDL&expanded=true) | `YTDL-Setup-<버전>.exe` |
+| **MP3 Checker** — MP3 라이브러리 점검 도구 (Windows) | [소개](https://yh-yeop.github.io/#p/mp3) | [목록](https://github.com/yh-yeop/releases/releases?q=MP3Checker&expanded=true) | `MP3Checker-Setup-<버전>.exe` |
+| **Tododoo** — 할 일 정리 (Windows · Android) | [소개](https://yh-yeop.github.io/#p/tododoo) | [목록](https://github.com/yh-yeop/releases/releases?q=Tododoo&expanded=true) | `Tododoo-Setup-<버전>.exe`, `Tododoo-<버전>.apk` |
+| **Fracture** — 2D 액션 플랫포머 (Windows, 베타) | [소개 페이지](https://yh-yeop.github.io/p/fracture/) | [목록](https://github.com/yh-yeop/releases/releases?q=Fracture&expanded=true) | `Fracture-<버전>-win64.zip` (압축을 풀고 `Fracture.exe` 실행) |
 
-자동 업데이트를 지원하는 앱은 시작 시 이 저장소에서 자기 릴리스를 확인해 새 버전이 있으면 안내합니다.
+- 설치 파일 옆의 `<파일>.sha256` 으로 받은 파일이 온전한지 확인할 수 있습니다 (`certutil -hashfile <파일> SHA256`).
+- YTDL · MP3 Checker · Tododoo 는 시작할 때 새 버전을 확인해 알려 줍니다. Fracture 는 아직 자동 업데이트가 없습니다.
+- 이 저장소 오른쪽의 "Latest" 표시는 마지막으로 올린 앱 하나만 가리킵니다. 앱별 최신 버전은 위 소개 링크에서 보세요.
 
 ## 배포 규칙 (관리용 메모)
 
-- 태그는 반드시 `<앱>-v<버전>` 형식 (예: `YTDL-v1.2.0`, `MP3Checker-v1.3.0`). 앱들이 접두사로 자기 릴리스를 구분하므로 접두사는 앱마다 달라야 함
-- 에셋 파일명에 `Setup` 이 포함된 `.exe` 를 첨부해야 앱이 인식 (`<앱>-Setup-<버전>.exe`), 무결성 확인용 `<파일>.sha256` 도 함께 첨부
+- 태그는 반드시 `<앱>-v<버전>` 형식 (예: `YTDL-v1.2.0`, `Fracture-v0.9.0-beta`). 앱들이 접두사로 자기 릴리스를 구분하므로 접두사는 앱마다 달라야 함
+- 릴리스 제목은 `<표시 이름> <버전>` (예: `MP3 Checker 2.3.7`, 베타는 `Fracture 0.9.0 베타`). 앱은 제목을 보지 않는다
+- Windows 설치 파일은 이름에 `Setup` 이 든 `.exe` (`<앱>-Setup-<버전>.exe`). 설치 프로그램이 없는 앱은 `<앱>-<버전>-win64.zip`. 무결성 확인용 `<파일>.sha256` 도 함께 첨부
 - 드래프트·프리릴리스는 업데이트 안내에서 무시됨 (베타는 프리릴리스로 올리고 `manifest-pre.json` 으로 알림 — 아래)
-- 앱마다 고정 프리릴리스 `<앱>-latest` 를 하나 두고, 버전을 게시할 때마다 그 안의 `manifest.json` 을 교체한다 (아래 규약)
+- 앱마다 고정 프리릴리스 `<앱>-latest` 를 하나 두고, 버전을 게시할 때마다 그 안의 `manifest.json`(또는 `manifest-pre.json`)을 교체한다 (아래 규약)
 - 저장소 전체의 "Latest" 는 마지막으로 올린 앱의 릴리스를 가리키므로 아무것도 여기에 의존하지 않는다. 최신 버전은 `manifest.json` 으로 안다
-- 새 앱을 추가하면 위 표에 한 줄 추가
+- 새 앱을 추가하면 위 표에 한 줄, 소개 사이트(`yh-yeop.github.io` 의 `js/data.js`)에 항목 하나를 추가
 
 ## manifest.json 규약 (schema 1)
 
@@ -54,7 +57,7 @@ https://github.com/yh-yeop/releases/releases/download/<앱>-latest/manifest-pre.
 |---|---|
 | `schema` | 형식 버전. 필드를 빼거나 뜻을 바꿀 때만 올린다 (추가는 그대로 1) |
 | `version` | `tag` 에서 `<앱>-v` 를 뗀 semver. 베타는 `0.3.0-beta.1` 처럼 프리릴리스 꼬리표를 붙인다 |
-| `assets` | 플랫폼 키(`windows`: `Setup` 이 든 `.exe`, `android`: `.apk`) → 그 버전 릴리스의 설치 파일. 해당 플랫폼이 없으면 키가 없다 |
+| `assets` | 플랫폼 키(`windows`: `Setup` 이 든 `.exe`, 없으면 `win64` 압축본 `.zip` / `android`: `.apk`) → 그 버전 릴리스의 설치 파일. 해당 플랫폼이 없으면 키가 없다. 압축본인지는 `name` 의 확장자로 안다 |
 | `sha256` | GitHub 가 계산한 자산 digest. 없으면 `null` |
 
 만드는 쪽 (배포 스크립트):
@@ -62,7 +65,8 @@ https://github.com/yh-yeop/releases/releases/download/<앱>-latest/manifest-pre.
 - 버전 릴리스를 **공개까지 마친 뒤** 그 릴리스를 다시 읽어 만든다 → 반쯤 올라간 릴리스를 가리키는 순간이 없다
 - 정식 릴리스는 `manifest.json`, 프리릴리스는 `manifest-pre.json` 을 교체한다. 드래프트는 건드리지 않는다
 - 기존 파일이 **더 높은 버전**이면 낮추지 않는다 (강제 옵션으로만)
-- 구현: YTDL·MP3Checker `release.ps1` (`-ManifestOnly` 로 다시 만들기), Tododoo `scripts/release.mjs` — 두 곳의 형식이 같아야 한다
+- 구현: YTDL·MP3Checker `release.ps1` (`-ManifestOnly` 로 다시 만들기), Tododoo `scripts/release.mjs`, 배포 스크립트가 없는 앱(Fracture)은 이 저장소의 `tools/manifest.mjs` — 세 곳의 형식이 같아야 한다
+- `tools/manifest.mjs`: 버전 릴리스를 손으로 올린 뒤 `node tools/manifest.mjs <태그>` (gh CLI 로그인 필요, `--dry-run` 으로 미리 보기, `--force` 로 낮추기 허용). `<앱>-latest` 가 없으면 만든다
 
 읽는 쪽 (앱 업데이터):
 
