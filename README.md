@@ -18,6 +18,53 @@
 
 - 태그는 반드시 `<앱>-v<버전>` 형식 (예: `YTDL-v1.2.0`, `MP3Checker-v1.3.0`). 앱들이 접두사로 자기 릴리스를 구분하므로 접두사는 앱마다 달라야 함
 - 에셋 파일명에 `Setup` 이 포함된 `.exe` 를 첨부해야 앱이 인식 (`<앱>-Setup-<버전>.exe`), 무결성 확인용 `<파일>.sha256` 도 함께 첨부
-- 드래프트·프리릴리스는 업데이트 안내에서 무시됨
-- 저장소 전체의 "Latest" 는 마지막으로 올린 앱의 릴리스를 가리킴. `releases/latest` 에 의존하는 업데이터는 쓰지 말고, 접두사로 거르거나 앱별 고정 태그(`<앱>-latest`)를 쓸 것
+- 드래프트·프리릴리스는 업데이트 안내에서 무시됨 (베타는 프리릴리스로 올리고 `manifest-pre.json` 으로 알림 — 아래)
+- 앱마다 고정 프리릴리스 `<앱>-latest` 를 하나 두고, 버전을 게시할 때마다 그 안의 `manifest.json` 을 교체한다 (아래 규약)
+- 저장소 전체의 "Latest" 는 마지막으로 올린 앱의 릴리스를 가리키므로 아무것도 여기에 의존하지 않는다. 최신 버전은 `manifest.json` 으로 안다
 - 새 앱을 추가하면 위 표에 한 줄 추가
+
+## manifest.json 규약 (schema 1)
+
+앱·소개 사이트가 릴리스 목록을 훑지 않고 앱별 최신 버전을 알기 위한 파일. 고정 주소에서 받는다:
+
+```
+https://github.com/yh-yeop/releases/releases/download/<앱>-latest/manifest.json       정식 최신
+https://github.com/yh-yeop/releases/releases/download/<앱>-latest/manifest-pre.json   프리릴리스(베타) 최신 — 베타가 있는 앱만
+```
+
+```json
+{
+  "schema": 1,
+  "app": "YTDL",
+  "version": "1.5.2",
+  "tag": "YTDL-v1.5.2",
+  "prerelease": false,
+  "published_at": "2026-10-20T10:04:25Z",
+  "release_url": "https://github.com/yh-yeop/releases/releases/tag/YTDL-v1.5.2",
+  "notes": "릴리스 본문 (Markdown)",
+  "assets": {
+    "windows": { "name": "YTDL-Setup-1.5.2.exe", "url": "https://github.com/…/YTDL-Setup-1.5.2.exe", "size": 78084578, "sha256": "4002aa…" },
+    "android": { "name": "…apk", "url": "…", "size": 0, "sha256": "…" }
+  }
+}
+```
+
+| 필드 | 뜻 |
+|---|---|
+| `schema` | 형식 버전. 필드를 빼거나 뜻을 바꿀 때만 올린다 (추가는 그대로 1) |
+| `version` | `tag` 에서 `<앱>-v` 를 뗀 semver. 베타는 `0.3.0-beta.1` 처럼 프리릴리스 꼬리표를 붙인다 |
+| `assets` | 플랫폼 키(`windows`: `Setup` 이 든 `.exe`, `android`: `.apk`) → 그 버전 릴리스의 설치 파일. 해당 플랫폼이 없으면 키가 없다 |
+| `sha256` | GitHub 가 계산한 자산 digest. 없으면 `null` |
+
+만드는 쪽 (배포 스크립트):
+
+- 버전 릴리스를 **공개까지 마친 뒤** 그 릴리스를 다시 읽어 만든다 → 반쯤 올라간 릴리스를 가리키는 순간이 없다
+- 정식 릴리스는 `manifest.json`, 프리릴리스는 `manifest-pre.json` 을 교체한다. 드래프트는 건드리지 않는다
+- 기존 파일이 **더 높은 버전**이면 낮추지 않는다 (강제 옵션으로만)
+- 구현: YTDL·MP3Checker `release.ps1` (`-ManifestOnly` 로 다시 만들기), Tododoo `scripts/release.mjs` — 두 곳의 형식이 같아야 한다
+
+읽는 쪽 (앱 업데이터):
+
+- 정식 채널은 `manifest.json`, 베타 채널은 `manifest.json` 과 `manifest-pre.json` 을 둘 다 읽어 **더 높은 버전**을 쓴다 (베타 중에 정식이 나오면 정식으로)
+- 받지 못하거나 형식이 틀리면 지금처럼 릴리스 목록(`<앱>-v` 접두사)으로 넘어간다
+- 브라우저·웹뷰에서 직접 `fetch` 하면 CORS 로 막힌다. 데스크톱(Python)·네이티브 요청에서만 이 주소를 쓰고, 웹은 GitHub API 를 쓴다
