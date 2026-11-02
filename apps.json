@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "apps": [
+    {
+      "id": "YTDL",
+      "name": "YTDL",
+      "site": "ytdl",
+      "category": "app",
+      "desc": "유튜브 → 커버·싱크가사 포함 MP3",
+      "platforms": ["windows"]
+    },
+    {
+      "id": "MP3Checker",
+      "name": "MP3 Checker",
+      "site": "mp3",
+      "category": "app",
+      "desc": "MP3 라이브러리 점검 도구",
+      "platforms": ["windows"]
+    },
+    {
+      "id": "Tododoo",
+      "name": "Tododoo",
+      "site": "tododoo",
+      "category": "app",
+      "desc": "할 일 정리",
+      "platforms": ["windows", "android"]
+    },
+    {
+      "id": "Fracture",
+      "name": "Fracture",
+      "site": "fracture",
+      "category": "game",
+      "desc": "2D 액션 플랫포머",
+      "platforms": ["windows"],
+      "beta": true,
+      "page": "https://yh-yeop.github.io/p/fracture/"
+    }
+  ]
+}

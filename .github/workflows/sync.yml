@@ -1,0 +1,62 @@
+# 릴리스가 바뀔 때마다 manifest · README 다운로드 표 · Pages(index.json)를 맞춘다. 내용은 tools/sync.mjs, 설명은 README "구조".
+name: sync
+
+on:
+  release:
+    types: [published, edited, deleted, prereleased, released, unpublished]
+  push:
+    branches: [main]
+    paths: ['apps.json', 'tools/**', 'icons/**', '.github/workflows/sync.yml']
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  # 릴리스 이벤트는 태그를 가리켜 Pages 배포가 막히므로(배포는 main 만 허용) 같은 워크플로를 main 에서 다시 돌린다.
+  # GITHUB_TOKEN 으로 workflow_dispatch 를 거는 것은 새 실행을 만든다
+  relay:
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - run: gh workflow run sync.yml --repo "$GITHUB_REPOSITORY" --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  sync:
+    if: github.event_name != 'release'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # manifest 첨부 · README 커밋
+      pages: write
+      id-token: write
+    concurrency:
+      group: sync
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test tools/*.test.mjs
+      - run: node tools/sync.mjs --write --out _site --readme --summary "$GITHUB_STEP_SUMMARY"
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - name: README 커밋
+        run: |
+          if ! git diff --quiet -- README.md; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "README: 다운로드 표 갱신 (자동)" -- README.md
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
