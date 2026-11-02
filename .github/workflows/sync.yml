@@ -8,6 +8,10 @@ on:
     branches: [main]
     paths: ['apps.json', 'tools/**', 'icons/**', '.github/workflows/sync.yml']
   workflow_dispatch:
+  # 릴리스 이벤트는 태그가 가리키는 커밋의 워크플로로 돈다 → 이 파일이 생기기 전 커밋에 달린 옛 태그를 고치면 안 돈다.
+  # 그런 경우와 놓친 이벤트를 매시간 따라잡는다 (바뀐 게 없으면 아무것도 올리지 않음)
+  schedule:
+    - cron: '23 * * * *'
 
 permissions: {}
 
