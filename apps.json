@@ -66,6 +66,28 @@
         "minecraft"
       ],
       "page": "https://yh-yeop.github.io/p/talicraft/"
+    },
+    {
+      "id": "MCServerManager",
+      "name": "마인크래프트 서버 관리",
+      "site": "mcserver",
+      "category": "app",
+      "desc": "여러 마인크래프트 모드 서버와 중계기를 한 창에서 — 서버 · 클라이언트 업데이트까지",
+      "platforms": [
+        "windows"
+      ],
+      "page": "https://yh-yeop.github.io/p/mcserver/"
+    },
+    {
+      "id": "ModpackUpdater",
+      "name": "모드팩 업데이트",
+      "site": "modpackupdater",
+      "category": "app",
+      "desc": "Modrinth App 인스턴스를 그대로 둔 채 탈리 · 산업 · 피싱크래프트를 새 버전으로",
+      "platforms": [
+        "windows"
+      ],
+      "page": "https://yh-yeop.github.io/p/mcserver/#updater"
     }
   ]
 }
