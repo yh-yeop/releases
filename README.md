@@ -13,6 +13,7 @@
 | **MP3 Checker** — MP3 라이브러리 점검 도구 (Windows) | [소개](https://yh-yeop.github.io/#p/mp3) | [2.3.7](https://github.com/yh-yeop/releases/releases/tag/MP3Checker-v2.3.7) | [Windows 설치 파일](https://github.com/yh-yeop/releases/releases/download/MP3Checker-v2.3.7/MP3Checker-Setup-2.3.7.exe) | [목록](https://github.com/yh-yeop/releases/releases?q=MP3Checker&expanded=true) |
 | **Tododoo** — 할 일 정리 (Windows · Android) | [소개](https://yh-yeop.github.io/#p/tododoo) | [1.1.0](https://github.com/yh-yeop/releases/releases/tag/Tododoo-v1.1.0) | [Windows 설치 파일](https://github.com/yh-yeop/releases/releases/download/Tododoo-v1.1.0/Tododoo-Setup-1.1.0.exe) · [Android APK](https://github.com/yh-yeop/releases/releases/download/Tododoo-v1.1.0/Tododoo-1.1.0.apk) | [목록](https://github.com/yh-yeop/releases/releases?q=Tododoo&expanded=true) |
 | **Fracture** — 2D 액션 플랫포머 (Windows, 베타) | [소개](https://yh-yeop.github.io/p/fracture/) | [0.9.2 베타](https://github.com/yh-yeop/releases/releases/tag/Fracture-v0.9.2-beta) | [Windows 압축본](https://github.com/yh-yeop/releases/releases/download/Fracture-v0.9.2-beta/Fracture-0.9.2-beta-win64.zip) | [목록](https://github.com/yh-yeop/releases/releases?q=Fracture&expanded=true) |
+| **산업크래프트** — 친구들과 하는 Fabric 모드팩 (Minecraft 26.3) (Minecraft, 베타) | [소개](https://yh-yeop.github.io/p/sanupcraft/) | — | — | [목록](https://github.com/yh-yeop/releases/releases?q=Sanupcraft&expanded=true) |
 <!-- apps:end -->
 
 - 설치 파일 옆의 `<파일>.sha256` 으로 받은 파일이 온전한지 확인할 수 있습니다 (`certutil -hashfile <파일> SHA256`).
