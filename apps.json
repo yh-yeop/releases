@@ -7,7 +7,9 @@
       "site": "ytdl",
       "category": "app",
       "desc": "유튜브 → 커버·싱크가사 포함 MP3",
-      "platforms": ["windows"]
+      "platforms": [
+        "windows"
+      ]
     },
     {
       "id": "MP3Checker",
@@ -15,7 +17,9 @@
       "site": "mp3",
       "category": "app",
       "desc": "MP3 라이브러리 점검 도구",
-      "platforms": ["windows"]
+      "platforms": [
+        "windows"
+      ]
     },
     {
       "id": "Tododoo",
@@ -23,7 +27,10 @@
       "site": "tododoo",
       "category": "app",
       "desc": "할 일 정리",
-      "platforms": ["windows", "android"]
+      "platforms": [
+        "windows",
+        "android"
+      ]
     },
     {
       "id": "Fracture",
@@ -31,7 +38,9 @@
       "site": "fracture",
       "category": "game",
       "desc": "2D 액션 플랫포머",
-      "platforms": ["windows"],
+      "platforms": [
+        "windows"
+      ],
       "beta": true,
       "page": "https://yh-yeop.github.io/p/fracture/"
     },
@@ -41,9 +50,22 @@
       "site": "sanupcraft",
       "category": "game",
       "desc": "친구들과 하는 Fabric 모드팩 (Minecraft 26.3)",
-      "platforms": ["minecraft"],
+      "platforms": [
+        "minecraft"
+      ],
       "beta": true,
       "page": "https://yh-yeop.github.io/p/sanupcraft/"
+    },
+    {
+      "id": "Talicraft",
+      "name": "탈리크래프트",
+      "site": "talicraft",
+      "category": "game",
+      "desc": "두 친구용 야생 모드 — 크게 모으면 잃지 않는 부적 (Fabric, Minecraft 26.3)",
+      "platforms": [
+        "minecraft"
+      ],
+      "page": "https://yh-yeop.github.io/p/talicraft/"
     }
   ]
 }
