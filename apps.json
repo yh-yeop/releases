@@ -57,6 +57,18 @@
       "page": "https://yh-yeop.github.io/p/sanupcraft/"
     },
     {
+      "id": "Fishingcraft",
+      "name": "피싱크래프트",
+      "site": "fishingcraft",
+      "category": "game",
+      "desc": "바닐라 야생 낚시 Fabric 모드팩 (Minecraft 26.3)",
+      "platforms": [
+        "minecraft"
+      ],
+      "beta": true,
+      "page": "https://yh-yeop.github.io/p/fishingcraft/"
+    },
+    {
       "id": "Talicraft",
       "name": "탈리크래프트",
       "site": "talicraft",
