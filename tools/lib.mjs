@@ -25,9 +25,11 @@ export function compareSemver(a, b) {
   return 0
 }
 
-// 설치 파일 종류. android = .apk, windows = Setup 이 든 .exe(설치 프로그램) 또는 win64 압축본. 부속 파일(.sha256 · .sig)은 null
+// 설치 파일 종류. android = .apk, windows = Setup 이 든 .exe(설치 프로그램) 또는 win64 압축본, minecraft = 모드팩 .mrpack.
+// 부속 파일(.sha256 · .sig)은 null
 export function assetKind(name) {
   if (/\.apk$/i.test(name)) return { platform: 'android', kind: 'apk' }
+  if (/\.mrpack$/i.test(name)) return { platform: 'minecraft', kind: 'mrpack' }
   if (/Setup.*\.exe$/i.test(name)) return { platform: 'windows', kind: 'installer' }
   if (/win(dows|64)?[^/]*\.zip$/i.test(name)) return { platform: 'windows', kind: 'zip' }
   return null
@@ -60,6 +62,7 @@ export function pickAssets(release, { withKind = false } = {}) {
   const win = found['windows:installer'] ?? found['windows:zip']
   if (win) out.windows = win
   if (found['android:apk']) out.android = found['android:apk']
+  if (found['minecraft:mrpack']) out.minecraft = found['minecraft:mrpack']
   return out
 }
 
@@ -116,7 +119,7 @@ export function check(registry, releases) {
     if (Boolean(parseSemver(v).pre.length) !== Boolean(r.prerelease)) out.push(`${tag}: ${r.prerelease ? '프리릴리스인데 버전에 꼬리표(-beta 등)가 없음' : '버전에 꼬리표가 있는데 정식 릴리스임'}`)
     const names = new Set((r.assets ?? []).map(a => a.name))
     const installers = (r.assets ?? []).filter(a => assetKind(a.name))
-    if (!installers.length) out.push(`${tag}: 설치 파일(Setup .exe · win64 .zip · .apk)이 없음`)
+    if (!installers.length) out.push(`${tag}: 설치 파일(Setup .exe · win64 .zip · .apk · .mrpack)이 없음`)
     if (!current.has(tag)) continue
     for (const a of installers) {
       if (!names.has(`${a.name}.sha256`)) out.push(`${tag}: ${a.name}.sha256 없음`)
@@ -149,8 +152,8 @@ export function indexEntry(app, releases, base) {
 
 // README 의 앱 표 (<!-- apps:start --> ~ <!-- apps:end --> 사이를 이것으로 바꾼다)
 export function readmeTable(index) {
-  const PLAT = { windows: 'Windows', android: 'Android' }
-  const KIND = { installer: '설치 파일', zip: '압축본', apk: 'APK' }
+  const PLAT = { windows: 'Windows', android: 'Android', minecraft: 'Minecraft' }
+  const KIND = { installer: '설치 파일', zip: '압축본', apk: 'APK', mrpack: '모드팩' }
   const rows = index.apps.map(a => {
     const rel = a.beta ? (a.pre ?? a.stable) : a.stable
     const plats = a.platforms.map(p => PLAT[p] ?? p).join(' · ')

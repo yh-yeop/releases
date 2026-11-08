@@ -34,6 +34,16 @@
       "platforms": ["windows"],
       "beta": true,
       "page": "https://yh-yeop.github.io/p/fracture/"
+    },
+    {
+      "id": "Sanupcraft",
+      "name": "산업크래프트",
+      "site": "sanupcraft",
+      "category": "game",
+      "desc": "친구들과 하는 Fabric 모드팩 (Minecraft 26.3)",
+      "platforms": ["minecraft"],
+      "beta": true,
+      "page": "https://yh-yeop.github.io/p/sanupcraft/"
     }
   ]
 }

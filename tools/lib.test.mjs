@@ -22,6 +22,8 @@ test('설치 파일 종류', () => {
   assert.deepEqual(assetKind('YTDL-Setup-1.5.2.exe'), { platform: 'windows', kind: 'installer' })
   assert.deepEqual(assetKind('Fracture-0.9.0-beta-win64.zip'), { platform: 'windows', kind: 'zip' })
   assert.deepEqual(assetKind('Tododoo-1.0.1.apk'), { platform: 'android', kind: 'apk' })
+  assert.deepEqual(assetKind('sanupcraft-0.5.0-beta.4.mrpack'), { platform: 'minecraft', kind: 'mrpack' })
+  for (const n of ['sanupcraft-0.5.0-beta.4.jar', 'sanupcraft-showcase-0.5.0.zip', 'sanupcraft-prism-0.5.0-beta.4.zip', 'x.mrpack.sha256']) assert.equal(assetKind(n), null, n)
   for (const n of ['YTDL-Setup-1.5.2.exe.sha256', 'Tododoo-Setup-1.0.1.exe.sig', 'manifest.json', 'source.zip']) assert.equal(assetKind(n), null, n)
 })
 
