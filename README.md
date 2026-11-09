@@ -22,7 +22,7 @@
 <!-- apps:end -->
 
 - 설치 파일 옆의 `<파일>.sha256` 으로 받은 파일이 온전한지 확인할 수 있습니다 (`certutil -hashfile <파일> SHA256`).
-- YTDL · MP3 Checker · Tododoo 는 시작할 때 새 버전을 확인해 알려 줍니다. Fracture 는 아직 자동 업데이트가 없습니다.
+- YTDL · MP3 Checker · Tododoo 는 시작할 때 새 버전을 확인해 알려 줍니다. Fracture 는 0.9.5 부터 설치판이 타이틀에서 새 버전을 받아 설치합니다 (zip 판은 알림만).
 - 이 저장소 오른쪽의 "Latest" 표시는 마지막으로 올린 앱 하나만 가리킵니다. 앱별 최신 버전은 위 표에서 보세요.
 
 ---
