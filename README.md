@@ -62,7 +62,7 @@ node --test tools/*.test.mjs        # 규칙 함수 테스트
 | `name` | ✔ | 표시 이름. 릴리스 제목이 `<name> <버전>` 이어야 한다 |
 | `desc` | | 한 줄 설명 (다운로드 표 · 사이트 카드) |
 | `platforms` | | `windows` · `android`. 여기 없는 플랫폼 파일을 올리면 경고 |
-| `category` | | 사이트 분류 `app` · `game` 등 (기본 `app`) |
+| `category` | | 사이트 분류 (기본 `app`). 쓸 수 있는 값은 소개 사이트 `js/data.js` 의 `CATS` (지금 `maple` · `minecraft` · `web` · `app` · `game` · `etc`). 모르는 값이면 사이트가 `app` 으로 보여 준다 |
 | `beta` | | `true` 면 프리릴리스(베타)도 최신으로 보여 준다 |
 | `site` | | 소개 사이트 id (`#p/<site>`). 사이트 카드 · 소개 링크에 쓴다 |
 | `page` | | 소개 페이지 주소 (없으면 `https://yh-yeop.github.io/#p/<site>`) |

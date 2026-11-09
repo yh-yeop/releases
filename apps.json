@@ -48,7 +48,7 @@
       "id": "Sanupcraft",
       "name": "산업크래프트",
       "site": "sanupcraft",
-      "category": "game",
+      "category": "minecraft",
       "desc": "친구들과 하는 Fabric 모드팩 (Minecraft 26.3)",
       "platforms": [
         "minecraft"
@@ -60,7 +60,7 @@
       "id": "Fishingcraft",
       "name": "피싱크래프트",
       "site": "fishingcraft",
-      "category": "game",
+      "category": "minecraft",
       "desc": "바닐라 야생 낚시 Fabric 모드팩 (Minecraft 26.3)",
       "platforms": [
         "minecraft"
@@ -72,7 +72,7 @@
       "id": "Talicraft",
       "name": "탈리크래프트",
       "site": "talicraft",
-      "category": "game",
+      "category": "minecraft",
       "desc": "두 친구용 야생 모드 — 크게 모으면 잃지 않는 부적 (Fabric, Minecraft 26.3)",
       "platforms": [
         "minecraft"
@@ -83,7 +83,7 @@
       "id": "MCServerManager",
       "name": "마인크래프트 서버 관리",
       "site": "mcserver",
-      "category": "app",
+      "category": "minecraft",
       "desc": "여러 마인크래프트 모드 서버와 중계기를 한 창에서 — 서버 · 클라이언트 업데이트까지",
       "platforms": [
         "windows"
@@ -94,7 +94,7 @@
       "id": "ModpackUpdater",
       "name": "모드팩 업데이트",
       "site": "modpackupdater",
-      "category": "app",
+      "category": "minecraft",
       "desc": "Modrinth App 인스턴스를 그대로 둔 채 탈리 · 산업 · 피싱크래프트를 새 버전으로",
       "platforms": [
         "windows"
