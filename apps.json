@@ -69,6 +69,18 @@
       "page": "https://yh-yeop.github.io/p/fishingcraft/"
     },
     {
+      "id": "Opencraft",
+      "name": "오픈크래프트",
+      "site": "opencraft",
+      "category": "minecraft",
+      "desc": "오픈월드 모험 Fabric 모드팩 (Minecraft 26.3)",
+      "platforms": [
+        "minecraft"
+      ],
+      "beta": true,
+      "page": "https://yh-yeop.github.io/p/opencraft/"
+    },
+    {
       "id": "Talicraft",
       "name": "탈리크래프트",
       "site": "talicraft",
