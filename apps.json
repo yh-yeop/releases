@@ -113,6 +113,16 @@
         "windows"
       ],
       "page": "https://yh-yeop.github.io/p/mcserver/#updater"
+    },
+    {
+      "id": "MesoCalc",
+      "name": "메소 계산기",
+      "site": "meso",
+      "category": "maple",
+      "desc": "메소 장부 · 목표 도달일 · 보스 수익 계산기",
+      "platforms": [
+        "windows"
+      ]
     }
   ]
 }
