@@ -121,7 +121,8 @@
       "category": "maple",
       "desc": "메소 장부 · 목표 도달일 · 보스 수익 계산기",
       "platforms": [
-        "windows"
+        "windows",
+        "android"
       ]
     }
   ]
