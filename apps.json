@@ -16,7 +16,7 @@
       "name": "YTDL (Android)",
       "site": "ytdl-android",
       "category": "app",
-      "desc": "유튜브 앱 [공유] 한 번으로 커버·싱크가사 포함 MP3 (폰)",
+      "desc": "유튜브 앱 [공유] 한 번으로 커버·싱크가사 포함 MP3",
       "platforms": [
         "android"
       ],
