@@ -12,6 +12,18 @@
       ]
     },
     {
+      "id": "YTDL-Android",
+      "name": "YTDL (Android)",
+      "site": "ytdl-android",
+      "category": "app",
+      "desc": "유튜브 앱 [공유] 한 번으로 커버·싱크가사 포함 MP3 (폰)",
+      "platforms": [
+        "android"
+      ],
+      "page": "https://yh-yeop.github.io/#p/ytdl",
+      "icon": "https://yh-yeop.github.io/assets/icons/ytdl.png"
+    },
+    {
       "id": "MP3Checker",
       "name": "MP3 Checker",
       "site": "mp3",
@@ -20,6 +32,18 @@
       "platforms": [
         "windows"
       ]
+    },
+    {
+      "id": "MP3Checker-Android",
+      "name": "MP3 Checker (Android)",
+      "site": "mp3-android",
+      "category": "app",
+      "desc": "폰 음악 폴더의 가사·커버·태그를 그 자리에서 점검",
+      "platforms": [
+        "android"
+      ],
+      "page": "https://yh-yeop.github.io/#p/mp3",
+      "icon": "https://yh-yeop.github.io/assets/icons/mp3.png"
     },
     {
       "id": "Tododoo",
